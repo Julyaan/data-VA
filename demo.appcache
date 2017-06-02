@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+#需要缓存的列表v5.11-2 ,manifest='demo.appcache')
+\assets\css\themify-icons.css
+\assets\css\demo.css
+\assets\css\bootstrap.min.css
+\assets\js\bootstrap-notify.js
+\assets\js\jquery-1.10.2.js
+\assets\js\jquery.min.js
+
+NETWORK: 
+* 

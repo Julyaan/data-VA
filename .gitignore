@@ -1,0 +1,12 @@
+*.orig  
+*.log  
+*.rej  
+*.swo  
+*.swp  
+*.dump  
+*.docx
+*.txt
+*.csv
+.idea
+node_modules/
+public/csv/

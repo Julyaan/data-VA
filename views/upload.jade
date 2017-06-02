@@ -1,0 +1,342 @@
+extends layout
+
+block content
+    .overlay
+    div#modal.window
+        div.items-container
+            div#close(style="cursor:pointer;")
+                span.ti-close(style="float:right")
+            div
+                p(style="margin-top:40px")
+                    b 请选择您要下载的模板文件
+            div(style="padding:35px 50px 50px 50px")
+                div.file-container(onclick='download1()')
+                    div
+                        span.ti-file
+                     p  局属检测单位日报表
+                div(style="float:left;width:10%;height:50px")
+                div.file-container(onclick='download2()')
+                    div
+                        span.ti-file
+                     p  改革监测药品月报表
+    div#dropbox.dropbox
+        div.items-container
+            div#close2(style="cursor:pointer;")
+                span.ti-close(style="float:right")
+            div
+                p(style="margin-top:0px;font-size:30px;color:#aaa")
+                    b 推拽文件至此
+                div#dropbox-border.dropbox-border
+                     table.table
+                        tbody#tbody
+
+
+                div(style="margin:5px auto")
+                    button.btn.btn-success(onclick='uploadDrag()')
+                        i.ti-upload 开始上传
+                a(style='position:absolute;bottom:20px;right:40px;' onclick='clearAll()' href='#') 清空所有
+
+    .wraper
+        .sidebar(data-background-color="white",data-active-color="danger")
+            .sidebar-wrapper
+                .logo
+                    a.simple-text(href='/')
+                        b   Excel文件处理
+                ul.nav
+                    li
+                        a(href='/')
+                            i.ti-panel
+                            p 数据可视化
+                    li
+                        a(href='/list')
+                            i.ti-view-list-alt
+                            p 文件列表
+                    li.active
+                        a(href='/upload')
+                            i.ti-export
+                            p 上传文件
+                    li
+                        a(href='#')
+                            i.ti-map
+                            p 待扩展
+                    li.active-pro
+                        a(href='/')
+                            i.ti-bell
+                            p Notifications
+        .main-panel(style='overflow:hidden')
+            nav.navbar.navbar-default
+                .container-fluid
+                    .navbar-header
+                        a.navbar-brand(href='#') visualization
+                    .collapse.navbar-collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a(href='#')
+                                    i.ti-settings
+                                    p Settings
+            .content
+                .container-fluid
+                    .row
+                        .col-md-12
+                            .card
+                                .header
+                                    h4.title 文件上传
+                                    hr
+                                    ul
+                                        li.category 请下载模板文件并使用模板文件上传
+                                        li.category 请按照模板表头填写数据，请勿擅自追加不相关的内容
+                                        li.category 支持文件的批量上传
+                                        li.category 如要上传多个文件，文件名的命名请以原模板文件名为开头，如drugs01。
+                                .content
+                                    .form#upload(enctype='multipart/form-data', method='post')
+                                        div
+                                            div.centeritem
+                                                button.btn.btn-primary.btn-lg(onclick="openWindow()")
+                                                    i.ti-download 下载模板
+                                        div
+                                            div.centeritem
+                                                button.btn.btn-info.btn-lg
+                                                    i.ti-new-window 选择文件
+                                                input#file(name='uploadFile', type='file', multiple='multiple',style='cursor:pointer')
+                                        div
+                                            div.centeritem
+                                                button.btn.btn-lg(onclick='upload()')
+                                                    i.ti-upload 上传文件
+                                        div
+                                            div.centeritem
+                                                button.btn.btn-success.btn-lg(onclick='drag()')
+                                                    i.ti-upload 拖拽上传
+                                        .footer
+                                            hr
+                                            .stats
+                                                i#filelist.ti-reload 未选择文件
+            footer.footer.footerbottom
+                .container-fluid
+                    nav.pull-left
+                        | BUPT_KxLab@2017.4
+
+
+
+
+    script(src='/assets/js/jquery-1.10.2.js', type='text/javascript')
+    script(src='/assets/js/bootstrap.min.js', type='text/javascript')
+    // Charts Plugin
+    script(src='/assets/js/chartist.min.js')
+    // Notifications Plugin
+    script(src='/assets/js/bootstrap-notify.js')
+    // Paper Dashboard Core javascript and methods for Demo purpose
+    script(src='/assets/js/paper-dashboard.js')
+    script(src='/assets/js/demo.js')
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $('#file').on('change', function () {
+                var fileNames = '<span style="padding:0.5em">已选择：</span>';
+                $.each(this.files, function () {
+                    fileNames += '<span style="padding:0.5em">' + this.name + '</span> ';
+                });
+                $('#filelist').removeClass('ti-reload').addClass('ti-share');
+                $('#filelist').html(fileNames);
+            });
+         });
+        function download1() {
+            window.location.href="/assets/templates/orgs.csv";
+        }
+        function download2() {
+            window.location.href = "/assets/templates/drugs.csv";
+        }
+
+        document.getElementsByClassName('overlay')[0].addEventListener('click', closeWindow, false);
+        document.getElementById('close').addEventListener('click', closeWindow, false);
+        document.getElementById('close2').addEventListener('click', closeWindow, false);
+        function openWindow(){
+           var modal=document.getElementById('modal');
+           var overlay=document.getElementsByClassName('overlay')[0];
+           var wrap=document.getElementsByClassName('wraper')[0];
+            wrap.className = (wrap.className == 'wraper') ? 'wraper cover' : 'wraper';
+            overlay.style.display ='block';
+            modal.style.width = '500px';
+            modal.style.height = '280px';
+            modal.style.zIndex = '100';
+          //  $('div.items-container').css('display', 'block');
+        }
+        function closeWindow() {
+            var modal = document.getElementById('modal');
+            var modal2 = document.getElementById('dropbox');
+            var overlay = document.getElementsByClassName('overlay')[0];
+            var wrap = document.getElementsByClassName('wraper')[0];
+            modal.style.width = '200px';
+            modal.style.height = '200px';
+            wrap.className = (wrap.className == 'wraper') ? 'wraper cover' : 'wraper';
+            overlay.style.display = 'none';
+            modal.style.zIndex = '-1';
+            modal2.style.zIndex = '-1';
+         //   $('div.items-container').css('display','none');
+        }
+        function drag() {
+            var modal = document.getElementById('dropbox');
+            var overlay = document.getElementsByClassName('overlay')[0];
+            var wrap = document.getElementsByClassName('wraper')[0];
+            wrap.className = 'wraper cover';
+            overlay.style.display = 'block';
+            modal.style.zIndex = '100';
+        }
+        function upload() {
+            var csvData=new FormData();
+            for (var i = 0; i < document.getElementById("file").files.length; i++) {
+                var file = document.getElementById("file").files[i];
+                if (!/\.csv$/i.test(file.name)) {
+                   // alert(file.name + "不是CSV文件,请转换格式后重试");
+                    demo.showNotification('top', 'center', 'warning', {
+                        icon: "ti-alert",
+                        message: file.name+"不是CSV文件,请转换格式后重试!"
+
+                    });
+                    return false
+                } else if(!/^(drugs|orgs)/.test(file.name)) {
+                    //alert(file.name + "！");
+                    demo.showNotification('top', 'center', 'danger', {
+                        icon: "ti-alert",
+                        message: file.name + "没有按照命名规则命名，请重新命名!"
+
+                    });
+                    return false
+                }else{
+                    csvData.append(file.name, file);
+                }
+            }
+            $.ajax({
+                url: 'upload',
+                type: 'POST',
+                data: csvData,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    demo.showNotification('top', 'center', 'success', {
+                        icon: "ti-check-box",
+                        message: "<b>上传成功！</b>数据已经成功解析并保存到数据库"
+
+                    });
+                },
+                error: function (returndata) {
+                    demo.showNotification('top', 'center', 'danger', {
+                        icon: "ti-face-sad",
+                        message: "<b>上传失败！</b>请稍后重试。错误原因："+returndata,
+
+                    });
+                }
+            });
+        }
+        //拖拽文件上传，单例模式
+        FormData.prototype.deleteAll=function () {
+            var _this=this;
+            this.forEach(function(value,key){
+                _this.delete(key);
+            })
+        }
+        var Dragfiles=(function (){
+            var instance;
+            return function(){
+                if(!instance){
+                    instance = new FormData();
+                }
+                return instance;
+            }
+        }());
+        var dz = document.getElementById('dropbox-border');
+        $("#tbody").on('click','tr td:last-child',function(){
+            //删除拖拽框已有的文件
+            var temp=Dragfiles();
+            var key=$(this).prev().prev().prev().text();
+            console.log(key);
+            temp.delete(key);
+            $(this).parent().remove();
+        });
+        dz.ondragover = function (ev) {
+            //阻止浏览器默认打开文件的操作
+            ev.preventDefault();
+            this.style.borderColor = 'red';
+
+        }
+
+        dz.ondragleave = function () {
+            this.style.borderColor = 'gray';
+        }
+        dz.ondrop = function (ev) {
+            this.style.borderColor = 'gray';
+            //阻止浏览器默认打开文件的操作
+            ev.preventDefault();
+            var files = ev.dataTransfer.files;
+            var len=files.length,
+                i=0;
+            var frag=document.createDocumentFragment();
+            var tr,time,size;
+            var newForm=Dragfiles(); //获取单例
+            var it=newForm.entries();
+            while(i<len){
+                tr=document.createElement('tr');
+                size=Math.round(files[i].size * 100 / 1024) / 100 + 'KB';
+                time = files[i].lastModifiedDate.toLocaleDateString() + ' '+files[i].lastModifiedDate.toTimeString().split(' ')[0];
+                tr.innerHTML='<td>'+files[i].name+'</td><td>'+time+'</td><td>'+size+'</td><td>删除</td>';
+                console.log(size+' '+time);
+                frag.appendChild(tr);
+                newForm.append(files[i].name,files[i]);
+                //console.log(it.next());
+                i++;
+            }
+            console.log(this.childNodes[0].nodeName);
+            this.childNodes[0].childNodes[0].appendChild(frag);
+        }
+
+        function blink() {
+            document.getElementById('dropbox-border').style.borderColor = 'gray';
+        }
+        //上传文件
+        function uploadDrag(){
+            if (document.getElementsByTagName('tbody')[0].hasChildNodes() == false) {
+                document.getElementById('dropbox-border').style.borderColor = 'red';
+                setTimeout(blink, 300);
+                return false;
+            }
+            var data=Dragfiles();
+            console.log(data);
+            $.ajax({
+                url: 'upload',
+                type: 'POST',
+                data: data,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    demo.showNotification('top', 'center', 'success', {
+                        icon: "ti-check-box",
+                        message: "<b>上传成功！</b>数据已经成功解析并保存到数据库"
+
+                    });
+                    closeWindow();
+                    data.deleteAll();
+                    $('#tbody').empty();
+                },
+                error: function (returndata) {
+                    demo.showNotification('top', 'center', 'danger', {
+                        icon: "ti-face-sad",
+                        message: "<b>上传失败！</b>请稍后重试。错误原因：" + returndata,
+
+                    });
+
+                }
+            });
+        }
+        //清空所有内容
+        function clearAll() {
+            if (document.getElementsByTagName('tbody')[0].hasChildNodes() == false) {
+                document.getElementById('dropbox-border').style.borderColor = 'red';
+                setTimeout(blink, 300);
+                return false;
+            }
+            var data = Dragfiles();
+            data.deleteAll(); //清空formData
+            $('#tbody').empty();
+        }

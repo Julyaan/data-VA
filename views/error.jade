@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  .wraper
+    .sidebar(data-background-color="white",data-active-color="danger")
+      .sidebar-wrapper
+        .logo
+          a.simple-text(href='/') Excel文件处理
+        ul.nav
+          li
+            a(href='/')
+              i.ti-panel
+              p 数据可视化
+          li
+            a(href='/list')
+              i.ti-view-list-alt
+              p 文件列表
+          li
+            a(href='/upload')
+              i.ti-export
+              p 上传文件
+          li
+            a(href='/')
+              i.ti-map
+              p 待扩展
+          li.active-pro
+            a(href='/')
+              i.ti-bell
+              p Notifications
+    .main-panel
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='#') visualization
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#')
+                  i.ti-settings
+                  p Settings
+      .content
+        .container-fluid
+          .row
+            .col-md-12
+              .card
+                .header
+                  h1= message
+                  h2= error.status
+                 .content
+                  pre #{error.stack}
+      footer.footer.footerbottom
+        .container-fluid
+          nav.pull-left
+            | BUPT_KxLab@2017.4
+

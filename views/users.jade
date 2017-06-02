@@ -1,0 +1,12 @@
+//
+   Created by codeplay on 2017/4/16.
+
+extends layout
+
+block content
+    h1= title
+    ul
+        each user in users
+            li
+                h4 #{user.name}
+                span #{user.paw}

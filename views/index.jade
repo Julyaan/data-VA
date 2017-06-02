@@ -1,0 +1,1253 @@
+extends layout
+
+block content
+    .wraper
+        .sidebar(data-background-color="white",data-active-color="danger")
+            .sidebar-wrapper
+                .logo
+                    a.simple-text(href='/')
+                        b   Excel文件处理
+                ul.nav
+                    li.active
+                        a(href='/')
+                            i.ti-panel
+                            p 数据可视化
+                    li
+                        a(href='/list')
+                            i.ti-view-list-alt
+                            p 文件列表
+                    li
+                        a(href='/upload')
+                            i.ti-export
+                            p 上传文件
+                    li
+                        a(href='#')
+                            i.ti-map
+                            p 待扩展
+                    li.active-pro
+                        a(href='/')
+                            i.ti-bell
+                            p Notifications
+        .main-panel
+            nav.navbar.navbar-default
+                .container-fluid
+                    .navbar-header
+                        a.navbar-brand(href='#') visualization
+                    .collapse.navbar-collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a(href='#')
+                                    i.ti-settings
+                                    p Settings
+            .content
+                .container-fluid
+                    .row
+                        .col-md-12
+                            .card
+                                .header
+                                    h4.title 各监测中心日上传数据可视化展示-收入类
+                                    p.category 机构-收入-时间 多维动态散点图
+                                .content
+                                    #chart_1(style='width: 100%; height: 800px')
+                                    .footer
+                                        .chart-legend
+                                            i.fa.fa-circle.text-info
+                                            |  Open
+                                            i.fa.fa-circle.text-danger
+                                            |  Click
+                                            i.fa.fa-circle.text-warning
+                                            |  Click Second Time
+                                        hr
+                                        .stats
+                                            i.ti-reload
+                                            |  Updated 3 minutes ago
+                    .row
+                        .col-md-12
+                            .card
+                                .header
+                                    h4.title 各监测中心日上传数据可视化展示-门诊人次类
+                                    p.category 机构-收入-时间 堆叠柱状图
+                                .content
+                                    #chart_2(style='width: 100%; height: 500px')
+                                    .footer
+                                        .chart-legend
+                                            i.fa.fa-circle.text-info
+                                            |  Open
+                                            i.fa.fa-circle.text-danger
+                                            |  Click
+                                            i.fa.fa-circle.text-warning
+                                            |  Click Second Time
+                                        hr
+                                        .stats
+                                            i.ti-reload
+                                            |  Updated 3 minutes ago
+                    .row
+                        .col-md-12
+                            .card
+                                .header
+                                    h4.title 改革监测药品月报表可视化展示-机构主体
+                                    p.category 各监测机构药品采购-销售 多维平行坐标图
+                                .content
+                                    #chart_4(style='width: 100%; height: 500px')
+                                    .footer
+                                        .chart-legend
+                                            i.fa.fa-circle.text-info
+                                            |  Open
+                                            i.fa.fa-circle.text-danger
+                                            |  Click
+                                            i.fa.fa-circle.text-warning
+                                            |  Click Second Time
+                                        hr
+                                        .stats
+                                            i.ti-reload
+                                            |  Updated 3 minutes ago
+                    .row
+                        .col-md-12
+                            .card
+                                .header
+                                    h4.title 改革监测药品月报表可视化展示-药品主体
+                                    p.category 各监测机构药品 月份-采购-销售 堆叠折线图
+                                .content
+                                    #chart_5(style='width: 100%; height: 500px')
+                                    .footer(style="text-align: center;")
+                                        .chart-legend
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-info
+                                                |  阿托伐他汀钙片(薄膜衣)
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-danger
+                                                |  硫酸氢氯吡格雷片(薄膜衣)
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-warning
+                                                |  阿卡波糖片
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-info
+                                                |  百令胶囊
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-danger
+                                                |  硫酸氢氯吡格雷片(薄膜衣)
+                                                br
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-warning
+                                                |  苯磺酸氨氯地平片
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-info
+                                                |  康莱特注射液
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-danger
+                                                | 盐酸二甲双胍片(薄膜衣)
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-warning
+                                                |  丹红注射液
+                                            button.btn.btn-primary(style='border-color:rgba(0,0,0,0);color:#000')
+                                                i.fa.fa-circle.text-info
+                                                |  硝苯地平控释片
+                                        hr
+                                        .stats
+                                            i.ti-reload
+                                            |  Updated 3 minutes ago
+                    .row
+                        .col-md-6
+                            .card
+                                .header
+                                    h4.title Email Statistics
+                                    p.category Last Campaign Performance
+                                .content
+                                    #chartPreferences.ct-chart.ct-perfect-fourth
+                                    .footer
+                                        .chart-legend
+                                            i.fa.fa-circle.text-info
+                                            |  Open
+                                            i.fa.fa-circle.text-danger
+                                            |  Bounce
+                                            i.fa.fa-circle.text-warning
+                                            |  Unsubscribe
+                                        hr
+                                        .stats
+                                            i.ti-timer
+                                            |  Campaign sent 2 days ago
+                        .col-md-6
+                            .card
+                                .header
+                                    h4.title 2015 Sales
+                                    p.category All products including Taxes
+                                .content
+                                    #chartActivity.ct-chart
+                                    .footer
+                                        .chart-legend
+                                            i.fa.fa-circle.text-info
+                                            |  Tesla Model S
+                                            i.fa.fa-circle.text-warning
+                                            |  BMW 5 Series
+                                        hr
+                                        .stats
+                                            i.ti-check
+                                            |  Data information certified
+            footer.footer.footerbottom
+                .container-fluid
+                    nav.pull-left
+                        | BUPT_KxLab@2017.4
+
+    script(src='/assets/js/jquery-1.10.2.js', type='text/javascript')
+    script(src='/assets/js/jquery.min.js', type='text/javascript')
+    script(src='/assets/js/bootstrap.min.js', type='text/javascript')
+    // Charts Plugin
+    script(src='/assets/js/echarts.min.js')
+    // Notifications Plugin
+    script(src='/assets/js/bootstrap-notify.js')
+    // Paper Dashboard Core javascript and methods for Demo purpose
+    script(src='/assets/js/paper-dashboard.js')
+    script(src='/assets/js/demo.js')
+    script(type='text/javascript').
+        $(document).ready(function(){
+            //demo.showNotification('top','center')
+            $.notify({
+                icon: 'ti-bell',
+                message: "本网站可以进行exel文件处理和展示，请<b>注意</b> ，在上传exel文件前先将exel文件另存为.csv格式."
+            },{
+                type: 'success',
+                timer: 5000
+            });
+         });
+        var dataOfChart4='!{dataOfChart4}';
+        dataOfChart4=eval("("+dataOfChart4+")");
+        var dataOfChart1='!{dataOfChart1}';
+        console.log(dataOfChart1);
+        dataOfChart1=eval("("+dataOfChart1+")");
+        console.log(dataOfChart1);
+        var institutionsArr=[
+            '北京市西城区德胜社区卫生服务中心',
+            '北京市第二医院',
+            '北京市丰盛中医骨伤专科医院',
+            '首都医科大学附属复兴医院',
+            '北京市肛肠医院',
+            '北京市西城区广外社区卫生服务中心',
+            '北京市西城区广外医院',
+            '北京中医药大学附属护国寺中医医院',
+            '北京市回民医院',
+            '北京市西城区平安医院',
+            '北京市西城区新街口社区卫生服务中心',
+            '北京市西城区展览路医院',
+            '北京市宣武中医医院'
+        ];
+        var drugsArr=[
+            '阿托伐他汀钙片(薄膜衣)',
+            '硫酸氢氯吡格雷片(薄膜衣)',
+            '阿卡波糖片',
+            '百令胶囊',
+            '硫酸氢氯吡格雷片(薄膜衣)',
+            '苯磺酸氨氯地平片',
+            '康莱特注射液',
+            '盐酸二甲双胍片(薄膜衣)',
+            '丹红注射液',
+            '硝苯地平控释片'];
+        var outpatientArr= [
+            '门急诊收入', '门诊医事服务费收入（挂号，诊疗费）', '普通号门诊医事服务费收入', '副主任医师门诊医事服务费收入',
+            '主任医师门诊医事服务费收入', '知名专家门诊医事服务费收入', '急诊医事服务费收入', '药品收入', '中草药收入',
+            '检查收入', 'CT检查收入', '核磁检查收入', '针灸治疗收入', '按摩（推拿）治疗收入', '出院收入（不含在院）',
+            '药品收入', '中草药收入', '医事服务费收入（诊查费）', '住院检查收入', 'CT检查收入', '核磁检查收入'];
+        var transIncome={
+            income1: '门急诊收入',
+            income2: '门诊医事服务费收入（挂号，诊疗费）',
+            income3: '普通号门诊医事服务费收入',
+            income4: '副主任医师门诊医事服务费收入',
+            income5: '主任医师门诊医事服务费收入',
+            income6: '知名专家门诊医事服务费收入',
+            income7: '急诊医事服务费收入',
+            income8: '药品收入',
+            income9: '中草药收入',
+            income10: '检查收入',
+            income11: 'CT检查收入' ,
+            income12: '核磁检查收入',
+            income13: '针灸治疗收入',
+            income14: '按摩（推拿）治疗收入',
+            income15: '出院收入（不含在院）',
+            income16: '药品收入',
+            income17: '中草药收入',
+            income18: '医事服务费收入（诊查费）',
+            income19: '住院检查收入',
+            income20: 'CT检查收入',
+            income21: '核磁检查收入',
+        };
+        console.log('ready1111');
+        (function () {
+            var myChart = echarts.init(document.getElementById('chart_2'));
+            var bdzData = '接诊人次';
+            var timeLineData = [2014, 2015, 2016, 2017];
+            var yData = ['北京市第二医院', '北京市丰盛中医骨伤专科医院', '首都医科大学附属复兴医院', '北京市肛肠医院', '北京市西城区广外社区卫生服务中心', '北京市西城区广外医院'];
+            var WLData = ['普通号门诊人次', '主任医师号门诊人次', '知名专家号门诊人次'];
+            var WOData = {
+                2014: [12, 3, 5, 5, 6, 6],
+                2015: [3, 14, 5, 13, 2, 29],
+                2016: [3, 11, 5, 13, 2, 19],
+                2017: [3, 14, 5, 13, 2, 29],
+            }
+            var WSData = {
+                2014: [2, 6, 15, 1, 2, 16],
+                2015: [13, 4, 5, 3, 12, 9],
+                2016: [3, 14, 5, 13, 2, 29],
+                2017: [13, 4, 5, 3, 12, 9],
+            }
+            var WTData = {
+                2014: [21, 3, 31, 5, 21, 6],
+                2015: [3, 11, 5, 13, 2, 19],
+                2016: [3, 14, 5, 13, 2, 29],
+                2017: [3, 14, 5, 13, 2, 29],
+            }
+
+
+            var option = {
+                baseOption: {
+                    title: {},
+                    timeline: {
+                        axisType: 'category',
+                        orient: 'vertical',
+                        autoPlay: true,
+                        inverse: true,
+                        playInterval: 3000,
+                        left: null,
+                        right: 0,
+                        top: 20,
+                        bottom: 20,
+                        width: 55,
+                        height: null,
+                        symbol: 'none',
+                        lineStyle: {
+                            color: '#555'
+                        },
+                        checkpointStyle: {
+                            color: '#bbb',
+                            borderColor: '#777',
+                            borderWidth: 2
+                        },
+                        controlStyle: {
+                            showNextBtn: false,
+                            showPrevBtn: false,
+                            normal: {
+                                color: '#666',
+                                borderColor: '#666'
+                            },
+                            emphasis: {
+                                color: '#aaa',
+                                borderColor: '#aaa'
+                            }
+                        },
+                        data: [],
+                        label: {
+                            formatter: function (s) {
+                                return (new Date(s)).getFullYear();
+                            }
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        // formatter: "{a} <br/>{b} : {c}%"
+                    },
+                    legend: {
+                        data: []
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '15%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'value',
+                        "axisLabel": {
+                            "interval": 0,
+
+                        }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: yData
+                    },
+                    series: [],
+                    animationEasing: 'elasticOut',
+                    animationDelayUpdate: function (idx) {
+                        return idx * 5;
+                    }
+                },
+                options: []
+            };
+            for (var n = 0; n < timeLineData.length; n++) {
+                option.baseOption.legend.data = WLData;
+                option.baseOption.timeline.data.push(timeLineData[n]);
+                option.options.push({
+                    title: {
+                        show: true,
+                        'text': timeLineData[n] + '年' + bdzData
+                    },
+                    series: [{
+                        name: WLData[0],
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true
+                            }
+                        },
+                        data: WOData[timeLineData[n]],
+                    }, {
+                        name: WLData[1],
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true
+                            }
+                        },
+                        data: WSData[timeLineData[n]],
+                    }, {
+                        name: WLData[2],
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true
+                            }
+                        },
+                        data: WTData[timeLineData[n]],
+                    }]
+                });
+            }
+            myChart.setOption(option);
+        })();
+        (function () {
+            var dataOfFormed1_1 = [], dataOfFormed1_2 = [], dataOfFormed1_3 = [], dataOfFormed1_4 = [], dataOfFormed1_5 = [], dataOfFormed1_6 = [],
+                dataOfFormed1_7 = [], dataOfFormed1_8 = [], dataOfFormed1_9 = [], dataOfFormed1_10 = [], dataOfFormed1_11 = [], dataOfFormed1_12 = [],
+                dataOfFormed1_13 = [];
+            for (var i = 0; i < dataOfChart1.length; i++) {
+                if (dataOfChart1[i]['institution'] == '北京市西城区德胜社区卫生服务中心') {
+                    for(var key in dataOfChart1[i]['outpatient']){
+                            dataOfFormed1_1.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key],'0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市第二医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_2.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市丰盛中医骨伤专科医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_3.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '首都医科大学附属复兴医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_4.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市肛肠医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_5.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市西城区广外社区卫生服务中心') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_6.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市西城区广外医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_7.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京中医药大学附属护国寺中医医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_8.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市回民医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_9.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市西城区平安医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_10.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市西城区新街口社区卫生服务中心') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_11.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市西城区展览路医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_12.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+                if (dataOfChart1[i]['institution'] == '北京市宣武中医医院') {
+                    for (var key in dataOfChart1[i]['outpatient']) {
+                        dataOfFormed1_13.push([dataOfChart1[i]['date'], transIncome[key], dataOfChart1[i]['outpatient'][key], '0']);
+                    }
+                }
+
+            }
+            var myChart = echarts.init(document.getElementById('chart_1'));
+            var schema = [
+                {name: 'date', index: 0, text: '日期'},
+                {name: 'categories', index: 1, text: '收入类别'},
+                {name: 'click', index: 2, text: '金额'},
+                {name: 'size', index: 3, text: '权重（待定）'}
+            ];
+            var itemStyle = {
+                normal: {
+                    opacity: 0.8,
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            };
+
+           var option = {
+                backgroundColor: '#404a59',
+                title: {
+                    text: '各机构收入信息散点图',
+                    subtext: '',
+                    left: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    top: 10,
+                },
+                toolbox: {
+                    feature: {
+                        dataView: {show: true, readOnly: false},
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                legend: {
+                    y: 'top',
+                    top: 40,
+                    padding: 30,
+                    left: 110,
+                    right: 110,
+                    data: institutionsArr,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 16
+                    }
+                },
+                grid: {
+                    x: '10%',
+                    x2: '10%',
+                    top: 200,
+                    y: '18%',
+                    y2: '10%'
+                },
+                tooltip: {
+                    padding: 10,
+                    backgroundColor: '#222',
+                    borderColor: '#777',
+                    borderWidth: 1,
+                    formatter: function (obj) {
+                        var value = obj.value;
+                        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+                            //  + obj.name + ' ' + value[0]
+                            + '</div>'
+                            + schema[1].text + '：' + value[1] + '<br>'
+                            + schema[2].text + '：' + value[2] + '<br>'
+                            + schema[3].text + '：' + value[3] + '<br>';
+                    }
+                },
+                xAxis: {
+                    type: 'time',
+                    name: '日期',
+                    //nameGap: 16,
+                    nameTextStyle: {
+                        color: '#fff',
+                        fontSize: 14
+                    },
+                    boundaryGap: ['10%', '10%'],
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#eee'
+                        }
+                    },
+
+                },
+                yAxis: {
+                    type: 'category',
+                    name: '收入类别',
+                    data: outpatientArr,
+                    nameLocation: 'end',
+                    nameGap: 20,
+                    nameTextStyle: {
+                        color: '#fff',
+                        fontSize: 16
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: '#eee'
+                        }
+                    },
+                    splitLine: {
+                        show: false
+                    }
+                },
+                visualMap: [
+                    {
+                        left: 'right',
+                        top: '10%',
+                        dimension: 2,
+                        min: 10,
+                        max: 100000,
+                        itemWidth: 30,
+                        itemHeight: 120,
+                        calculable: true,
+                        //precision: 1,
+                        text: ['圆形大小：收入金额'],
+                        textGap: 30,
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        inRange: {
+                            symbolSize: [10, 70]
+                        },
+                        outOfRange: {
+                            symbolSize: [10, 70],
+                            color: ['rgba(255,255,255,.2)']
+                        },
+                        controller: {
+                            inRange: {
+                                color: ['#c23531']
+                            },
+                            outOfRange: {
+                                color: ['#444']
+                            }
+                        }
+                    },
+                    {
+                        left: 'right',
+                        bottom: '5%',
+                        dimension: 3,
+                        min: 0,
+                        max: 500,
+                        itemHeight: 120,
+                        calculable: true,
+                        precision: 1,
+                        text: ['明暗：待定'],
+                        textGap: 30,
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        inRange: {
+                            colorLightness: [0.5, 1]
+                        },
+                        outOfRange: {
+                            color: ['rgba(255,255,255,.2)']
+                        },
+                        controller: {
+                            inRange: {
+                                color: ['#c23531']
+                            },
+                            outOfRange: {
+                                color: ['#444']
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '北京市西城区德胜社区卫生服务中心',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_1
+                    },
+                    {
+                        name: '北京市第二医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_2
+                    },
+                    {
+                        name: '北京市丰盛中医骨伤专科医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_3
+                    },
+                    {
+                        name: '首都医科大学附属复兴医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_4
+                    },
+                    {
+                        name: '北京市肛肠医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_5
+                    },
+                    {
+                        name: '北京市西城区广外社区卫生服务中心',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_6
+                    },
+                    {
+                        name: '北京市西城区广外医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_7
+                    },
+                    {
+                        name: '北京中医药大学附属护国寺中医医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_8
+                    },
+                    {
+                        name: '北京市回民医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_9
+                    },
+                    {
+                        name: '北京市西城区平安医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_10
+                    },
+                    {
+                        name: '北京市西城区新街口社区卫生服务中心',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_11
+                    },
+                    {
+                        name: '北京市西城区展览路医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_12
+                    },
+                    {
+                        name: '北京市宣武中医医院',
+                        type: 'scatter',
+                        lineStyle: itemStyle,
+                        data: dataOfFormed1_13
+                    }
+                ],
+            };
+            myChart.setOption(option);
+        })();
+        (function () {
+            var xData = function () {
+                var data = [];
+                for (var i = 1; i < 13; i++) {
+                    data.push(i + "月份");
+                }
+                return data;
+            }();
+            var myChart = echarts.init(document.getElementById('chart_5'));
+            var option = {
+                backgroundColor: "#344b58",
+                "title": {
+                    "text": "药品：阿托伐他汀钙片(薄膜衣)",
+                    x: "4%",
+
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: '22'
+                    },
+                    subtextStyle: {
+                        color: '#90979c',
+                        fontSize: '16',
+
+                    },
+                },
+                "tooltip": {
+                    "trigger": "axis",
+                    "axisPointer": {
+                        "type": "shadow",
+                        textStyle: {
+                            color: "#fff"
+                        }
+
+                    },
+                },
+                "grid": {
+                    "borderWidth": 0,
+                    "top": 110,
+                    "bottom": 95,
+                    textStyle: {
+                        color: "#fff"
+                    }
+                },
+                "legend": {
+                    x: '4%',
+                    top: '11%',
+                    textStyle: {
+                        color: '#90979c',
+                    },
+                    "data": ['采购量', '销售量', '销售额']
+                },
+
+
+                "calculable": true,
+                "xAxis": [{
+                    "type": "category",
+                    "axisLine": {
+                        lineStyle: {
+                            color: '#90979c'
+                        }
+                    },
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisTick": {
+                        "show": false
+                    },
+                    "splitArea": {
+                        "show": false
+                    },
+                    "axisLabel": {
+                        "interval": 0,
+
+                    },
+                    "data": xData,
+                }],
+                "yAxis": [{
+                    "type": "value",
+                    "splitLine": {
+                        "show": false
+                    },
+                    "axisLine": {
+                        lineStyle: {
+                            color: '#90979c'
+                        }
+                    },
+                    "axisTick": {
+                        "show": false
+                    },
+                    "axisLabel": {
+                        "interval": 0,
+
+                    },
+                    "splitArea": {
+                        "show": false
+                    },
+
+                }],
+                "dataZoom": [{
+                    "show": true,
+                    "height": 30,
+                    "xAxisIndex": [
+                        0
+                    ],
+                    bottom: 30,
+                    "start": 10,
+                    "end": 80,
+                    handleIcon: 'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
+                    handleSize: '110%',
+                    handleStyle: {
+                        color: "#d3dee5",
+
+                    },
+                    textStyle: {
+                        color: "#fff"
+                    },
+                    borderColor: "#90979c"
+
+
+                }, {
+                    "type": "inside",
+                    "show": true,
+                    "height": 15,
+                    "start": 1,
+                    "end": 35
+                }],
+                "series": [{
+                    "name": "采购量",
+                    "type": "bar",
+                    "stack": "总量",
+                    "barMaxWidth": 35,
+                    "barGap": "10%",
+                    "itemStyle": {
+                        "normal": {
+                            "color": "rgba(255,144,128,1)",
+                            "label": {
+                                "show": true,
+                                "textStyle": {
+                                    "color": "#fff"
+                                },
+                                "position": "insideTop",
+                                formatter: function (p) {
+                                    return p.value > 0 ? (p.value) : '';
+                                }
+                            }
+                        }
+                    },
+                    "data": [
+                        709,
+                        1917,
+                        2455,
+                        2610,
+                        1719,
+                        1433,
+                        1544,
+                        3285,
+                        5208,
+                        3372,
+                        2484,
+                        4078
+                    ],
+                },
+
+                    {
+                        "name": "销售量",
+                        "type": "bar",
+                        "stack": "总量",
+                        "itemStyle": {
+                            "normal": {
+                                "color": "rgba(0,191,183,1)",
+                                "barBorderRadius": 0,
+                                "label": {
+                                    "show": true,
+                                    "position": "top",
+                                    formatter: function (p) {
+                                        return p.value > 0 ? (p.value) : '';
+                                    }
+                                }
+                            }
+                        },
+                        "data": [
+                            327,
+                            1776,
+                            507,
+                            1200,
+                            800,
+                            482,
+                            204,
+                            1390,
+                            1001,
+                            951,
+                            381,
+                            220
+                        ]
+                    }, {
+                        "name": "销售额",
+                        "type": "line",
+                        "stack": "总量",
+                        symbolSize: 10,
+                        symbol: 'circle',
+                        "itemStyle": {
+                            "normal": {
+                                "color": "rgba(252,230,48,1)",
+                                "barBorderRadius": 0,
+                                "label": {
+                                    "show": true,
+                                    "position": "top",
+                                    formatter: function (p) {
+                                        return p.value > 0 ? (p.value) : '';
+                                    }
+                                }
+                            }
+                        },
+                        "data": [
+                            1036,
+                            3693,
+                            2962,
+                            3810,
+                            2519,
+                            1915,
+                            1748,
+                            4675,
+                            6209,
+                            4323,
+                            2865,
+                            4298
+                        ]
+                    },
+                ]
+            }
+            myChart.setOption(option);
+        })();
+        (function () {
+            var temp;
+            var dataOfFormed4_1=[],dataOfFormed4_2=[],dataOfFormed4_3=[],dataOfFormed4_4=[],dataOfFormed4_5=[],dataOfFormed4_6=[],
+                dataOfFormed4_7=[],dataOfFormed4_8=[],dataOfFormed4_9=[],dataOfFormed4_10=[],dataOfFormed4_11=[],dataOfFormed4_12=[],
+                dataOfFormed4_13=[];
+            for (var i = 0; i < dataOfChart4.length; i++) {
+                if(dataOfChart4[i]['institution']=='北京市西城区德胜社区卫生服务中心'){
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_1.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市第二医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_2.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市丰盛中医骨伤专科医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_3.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '首都医科大学附属复兴医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_4.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市肛肠医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_5.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市西城区广外社区卫生服务中心') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_6.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市西城区广外医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_7.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京中医药大学附属护国寺中医医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_8.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市回民医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_9.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市西城区平安医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_10.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市西城区新街口社区卫生服务中心') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_11.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市西城区展览路医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_12.push(temp);
+                }
+                if (dataOfChart4[i]['institution'] == '北京市宣武中医医院') {
+                    temp = [dataOfChart4[i]['month'], dataOfChart4[i]['name'], dataOfChart4[i]['amountOfPurchased'],
+                        dataOfChart4[i]['amountOfSales'], dataOfChart4[i]['volumeOfSales']]
+                    dataOfFormed4_13.push(temp);
+                }
+
+            }
+            var schema = [
+                {name: 'month', index: 0, text: '日期(月)'},
+                {name: 'name', index: 1, text: '药品名'},
+                {name: 'amountOfPurchased', index: 2, text: '采购量'},
+                {name: 'amountOfSales', index: 3, text: '销售总量'},
+                {name: 'volumeOfSales', index: 4, text: '销售金额（元）'}
+            ];
+            var lineStyle = {
+                normal: {
+                    width: 1,
+                    opacity: 0.5
+                }
+            };
+
+            var myChart = echarts.init(document.getElementById('chart_4'));
+            var option = {
+                backgroundColor: '#333',
+                legend: {
+                    top: 50,
+                    data:institutionsArr,
+                    itemGap: 15,
+                    left: 100,
+                    right: 100,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 14
+                    },
+                    itemWidth: 16,
+                },
+                toolbox: {
+                    feature: {
+                        dataView: {show: true, readOnly: false},
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                title: {
+                    text: '各监测机构药品采购-销售 多维平行坐标图',
+                    subtext: '',
+                    left: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    top: 10,
+                },
+                tooltip: {
+                    padding: 30,
+                    backgroundColor: '#222',
+                    borderColor: '#777',
+                    borderWidth: 1,
+                    formatter: function (obj) {
+                        var value = obj[0].value;
+                        return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+                            + obj[0].seriesName + ' ' + value[0] + '日期：'
+                            + value[7]
+                            + '</div>'
+                            + schema[1].text + '：' + value[1] + '<br>'
+                            + schema[2].text + '：' + value[2] + '<br>'
+                            + schema[3].text + '：' + value[3] + '<br>';
+                    }
+                },
+
+                parallelAxis: [
+                    {dim: 0, name: schema[0].text, max: 12, inverse: true, nameLocation: "start"},
+                    {dim: 1, name: schema[1].text,type: 'category', data: drugsArr },
+                    {dim: 2, name: schema[2].text},
+                    {dim: 3, name: schema[3].text},
+                    {dim: 4, name: schema[4].text},
+                ],
+                visualMap: {
+                    show: true,
+                    min: 0,
+                    max: 1000000,
+                    dimension: 4,
+                    bottom: 10,
+                    right: 0,
+                    calculable:true,
+                    inRange: {
+                        color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
+                        // colorAlpha: [0, 1]
+                    },
+                    text:['销售金额',''],
+                    textStyle:{
+                        color:'#fff'
+                    },
+                    textGap:20
+                },
+                parallel: {
+                    left: '5%',
+                    right: '15%',
+                    top: 230,
+                    bottom: 50,
+                    parallelAxisDefault: {
+                        type: 'value',
+                        name: 'AQI指数',
+                        nameLocation: 'end',
+                        nameGap: 20,
+                        nameTextStyle: {
+                            color: '#fff',
+                            fontSize: 12
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#aaa'
+                            }
+                        },
+                        axisTick: {
+                            lineStyle: {
+                                color: '#777'
+                            }
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name:'北京市西城区德胜社区卫生服务中心',
+                        type:'parallel',
+                        lineStyle: lineStyle,
+                        data:dataOfFormed4_1
+                    },
+                    {
+                        name: '北京市第二医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_2
+                    },
+                    {
+                        name: '北京市丰盛中医骨伤专科医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_3
+                    },
+                    {
+                        name: '首都医科大学附属复兴医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_4
+                    },
+                    {
+                        name: '北京市肛肠医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_5
+                    },
+                    {
+                        name: '北京市西城区广外社区卫生服务中心',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_6
+                    },
+                    {
+                        name: '北京市西城区广外医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_7
+                    },
+                    {
+                        name: '北京中医药大学附属护国寺中医医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_8
+                    },
+                    {
+                        name: '北京市回民医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_9
+                    },
+                    {
+                        name: '北京市西城区平安医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_10
+                    },
+                    {
+                        name: '北京市西城区新街口社区卫生服务中心',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_11
+                    },
+                    {
+                        name: '北京市西城区展览路医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_12
+                    },
+                    {
+                        name: '北京市宣武中医医院',
+                        type: 'parallel',
+                        lineStyle: lineStyle,
+                        data: dataOfFormed4_13
+                    }
+                ],
+            };
+            myChart.setOption(option);
+        })();
